@@ -1,0 +1,14 @@
+### Parts 1, 2, and 4
+
+    Make sure that you run roscore in a different terminal before running the following
+    commands.
+
+    Here are the commands for each part in order of 1, 2, and 4
+
+    $ roslaunch assignment3a_wallfollowingandobstacleavoidance obstacle_avoidance.launch
+    $ roslaunch assignment3a_wallfollowingandobstacleavoidance wall_follower.launch
+    $ roslaunch assignment3a_wallfollowingandobstacleavoidance emergency_braking.launch
+
+### Videos
+
+    The videos can be found in the /Aue823_Spring22_Team1/catkin_ws/src/assignment3a_wallfollowingandobstacleavoidance/videos directory
