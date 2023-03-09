@@ -7,10 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH='/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/devel/lib:/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu:/usr/local/cuda/lib64'
-export PKG_CONFIG_PATH="/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build'
-export PYTHONPATH="/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/devel/lib/python3/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES='/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/devel/share/common-lisp'
-export ROS_PACKAGE_PATH="/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/src:$ROS_PACKAGE_PATH"

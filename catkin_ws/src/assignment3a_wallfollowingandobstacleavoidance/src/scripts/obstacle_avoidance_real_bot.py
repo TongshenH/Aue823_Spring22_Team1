@@ -78,19 +78,19 @@ class Obstacle_Avoidance():
         l_count, r_count, f_count = 0, 0, 0
         
         for d in self.left:
-            if d > 15 or d < .05:
+            if d < 0.01:
                 continue
             l_sum += d
             l_count += 1
             
         for d in self.right or d < .05:
-            if d > 15:
+            if d < 0.01:
                 continue
             r_sum += d
             r_count += 1
             
         for d in self.forward:
-            if d < .15 and d > .02:
+            if d < .15 and d > .01:
                 # If there is an obstacle directly in front of the turtlebot, rotate cw
                 print(d)
                 return 1
