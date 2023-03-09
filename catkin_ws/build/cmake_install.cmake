@@ -132,7 +132,13 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/gtest/cmake_install.cmake")
   include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/assignment3a_wallfollowingandobstacleavoidance/cmake_install.cmake")
+  include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/turtlebot3_autorace_2020/turtlebot3_autorace_2020/cmake_install.cmake")
+  include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/turtlebot3_autorace_2020/turtlebot3_autorace_core/cmake_install.cmake")
+  include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/turtlebot3_autorace_2020/turtlebot3_autorace_msgs/cmake_install.cmake")
+  include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/turtlebot3_autorace_2020/turtlebot3_autorace_driving/cmake_install.cmake")
   include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/turtlebot3_simulations/turtlebot3_simulations/cmake_install.cmake")
+  include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/turtlebot3_autorace_2020/turtlebot3_autorace_camera/cmake_install.cmake")
+  include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/turtlebot3_autorace_2020/turtlebot3_autorace_detect/cmake_install.cmake")
   include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/turtlebot3_simulations/turtlebot3_fake/cmake_install.cmake")
   include("/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/turtlebot3_simulations/turtlebot3_gazebo/cmake_install.cmake")
 

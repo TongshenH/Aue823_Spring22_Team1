@@ -42,7 +42,7 @@ class Emergency_Brake():
         for d in self.forward:
             if d < threshold:
                 self.emergency_brake()
-                rospy.signal_shutdown()
+                rospy.signal_shutdown('just cause')
             else:
                 self.vel_msg.linear.x = .5
                 self.bot_control_publisher.publish(self.vel_msg)

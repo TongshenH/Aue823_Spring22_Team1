@@ -52,7 +52,7 @@ class Obstacle_Avoidance():
             r_count += 1
             
         for d in self.forward:
-            if d < .3:
+            if d < .1:
                 # If there is an obstacle directly in front of the turtlebot, rotate cw
                 return 1
             
