@@ -42,8 +42,9 @@ class LineFollower(object):
         left = binary_img[:, :width//2].sum()
         right = binary_img[:, width//2:].sum()
         angular_vel = .2
-        if right == 0 and left == 0:
-            pass
+        if right < 1000 and left < 1000:
+            self.zero_rotation()
+            angular_vel = 0
             # TODO: add locate path function
         elif right == 0 and left != 0:
             angular_vel *= 2.5
@@ -93,7 +94,7 @@ class LineFollower(object):
         gray = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY)
         
         ret, binary = cv2.threshold(gray, 70, 255, 0)
-        
+    
         cv2.imshow("Binary Image", binary)
         
         return binary
