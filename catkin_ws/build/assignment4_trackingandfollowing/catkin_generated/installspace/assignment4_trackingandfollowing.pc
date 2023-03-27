@@ -1,0 +1,8 @@
+prefix=/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/install
+
+Name: assignment4_trackingandfollowing
+Description: Description of assignment4_trackingandfollowing
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
