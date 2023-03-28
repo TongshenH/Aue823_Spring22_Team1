@@ -16,7 +16,7 @@ cv2.createTrackbar("US", "Tracking", 255, 255, nothing)
 cv2.createTrackbar("UV", "Tracking", 255, 255, nothing)
 
 # Read test image
-frame = cv2.imread("blob_detec.png")
+frame = cv2.imread("real_line.png")
 
 while True:
     # Blur the image for smoothing
