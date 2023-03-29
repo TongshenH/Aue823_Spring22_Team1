@@ -1,0 +1,2 @@
+set(apriltag_ros_MESSAGE_FILES "/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/src/apriltag_ros/apriltag_ros/msg/AprilTagDetection.msg;/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/src/apriltag_ros/apriltag_ros/msg/AprilTagDetectionArray.msg")
+set(apriltag_ros_SERVICE_FILES "/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/src/apriltag_ros/apriltag_ros/srv/AnalyzeSingleImage.srv")
