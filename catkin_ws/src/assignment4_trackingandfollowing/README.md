@@ -4,7 +4,7 @@
 
 ### Gazebo line follower
 
-$ roslaunch assignment4_trackingandfollowing turtlebot_follow_line.launch
+`roslaunch assignment4_trackingandfollowing turtlebot_follow_line.launch`
 
 To successfully follow the line, a binary image is first created that outputs all
 pixels of the path as 1 and all other pixels as zero. We then split the camera image
@@ -17,7 +17,7 @@ In order to run the real world line follower, you must first run the bringup and
 the raspi camera launch commands on the physical turtlebot. To run the script, use
 the below command:
 
-$ rosrun assignment4_trackingandfollowing real_line_follower.py
+`rosrun assignment4_trackingandfollowing real_line_follower.py`
 
 To successfully follow the line on the real bot a different approach was taken. A
 binary image was created like in the gazebo line follower, but this time we masked
