@@ -11,6 +11,8 @@ pixels of the path as 1 and all other pixels as zero. We then split the camera i
 into right and left images and sum up the pixel values of both sides. The ratio of 
 right pixels to left pixels is used as the error for our PID controller.
 
+![alt text](https://github.com/gbbyrd/Aue823_Spring22_Team1/blob/master/catkin_ws/src/assignment4_trackingandfollowing/line_follower_gazebo.png?raw=true)
+
 ### Real world line follower
 
 In order to run the real world line follower, you must first run the bringup and
