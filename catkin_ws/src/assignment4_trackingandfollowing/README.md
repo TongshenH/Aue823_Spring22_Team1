@@ -2,7 +2,7 @@
 
 ## PART 1
 
-1. Gazebo line follower
+### Gazebo line follower
 
 $ roslaunch assignment4_trackingandfollowing turtlebot_follow_line.launch
 
@@ -11,9 +11,7 @@ pixels of the path as 1 and all other pixels as zero. We then split the camera i
 into right and left images and sum up the pixel values of both sides. The ratio of 
 right pixels to left pixels is used as the error for our PID controller.
 
-![alt text](https://github.com/gbbyrd/Aue823_Spring22_Team1/blob/master/catkin_ws/src/assignment4_trackingandfollowing/line_follower_real.png?raw=true)
-
-2. Real world line follower
+### Real world line follower
 
 In order to run the real world line follower, you must first run the bringup and
 the raspi camera launch commands on the physical turtlebot. To run the script, use
@@ -26,6 +24,8 @@ binary image was created like in the gazebo line follower, but this time we mask
 the image and found the centroid of the detected portion of the line. The distance
 between this centroid and the center of our image is used as the error for our
 PID controller.
+
+![alt text](https://github.com/gbbyrd/Aue823_Spring22_Team1/blob/master/catkin_ws/src/assignment4_trackingandfollowing/line_follower_real.png?raw=true)
 
 ## PART 2
 
