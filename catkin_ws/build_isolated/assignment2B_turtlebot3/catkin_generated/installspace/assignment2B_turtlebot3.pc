@@ -1,8 +1,0 @@
-prefix=/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/install_isolated
-
-Name: assignment2B_turtlebot3
-Description: Description of assignment2B_turtlebot3
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

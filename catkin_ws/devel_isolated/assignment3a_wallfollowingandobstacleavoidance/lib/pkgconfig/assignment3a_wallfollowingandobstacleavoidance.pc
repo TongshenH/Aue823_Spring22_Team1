@@ -1,8 +1,0 @@
-prefix=/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/devel_isolated/assignment3a_wallfollowingandobstacleavoidance
-
-Name: assignment3a_wallfollowingandobstacleavoidance
-Description: Description of assignment3a_wallfollowingandobstacleavoidance
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
