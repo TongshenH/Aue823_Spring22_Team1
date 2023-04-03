@@ -33,3 +33,19 @@ PID controller.
 
 ## PART 2
 
+### April Tag Detection and following
+
+This works on real world bot as it detects and follows an april tag. You must first 
+run bringup and also the camera launch command on the physical turtlebot. To run the script,
+use the below command :
+
+`rosrun assignment4_trackingandfollowing apriltag_tracking.py`
+
+It is recommended to have a stable connection between the bot and operating PC as 
+this may affect the transmission speed of the image. One can also use compressed images
+to transfer from turtlebot to PC to solve the error
+
+The tutlebot detects the april tag and then subsequently the pose of the tag. Based on the
+relative pose, the turtlebot follows the tag.
+
+
