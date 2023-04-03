@@ -1,4 +1,4 @@
-# Team 2
+# Team 2 - Assignment 4
 
 ## PART 1
 
@@ -33,19 +33,28 @@ PID controller.
 
 ## PART 2
 
-### April Tag Detection and following
+### April Tag Detection and Following
+
+![alt text](https://github.com/Parth-S-Hub/Aue823_Spring22_Team1/blob/master/catkin_ws/src/assignment4_trackingandfollowing/src/video/apriltag_detection_AdobeExpress%20(1).gif)
 
 This works on real world bot as it detects and follows an april tag. You must first 
 run bringup and also the camera launch command on the physical turtlebot. To run the script,
-use the below command :
+use the below command:
 
 `rosrun assignment4_trackingandfollowing apriltag_tracking.py`
 
 It is recommended to have a stable connection between the bot and operating PC as 
 this may affect the transmission speed of the image. One can also use compressed images
-to transfer from turtlebot to PC to solve the error
+to transfer from turtlebot to PC to solve the error.
 
 The tutlebot detects the april tag and then subsequently the pose of the tag. Based on the
-relative pose, the turtlebot follows the tag.
+relative pose estimate, the turtlebot follows the tag.
+
+#### April tag detection and Following (Camera-View)
+![alt text](https://github.com/Parth-S-Hub/Aue823_Spring22_Team1/blob/master/catkin_ws/src/assignment4_trackingandfollowing/src/video/apriltag_follow_AdobeExpress.gif)
+
+#### April tag detection and Following
+
+![alt text](https://github.com/Parth-S-Hub/Aue823_Spring22_Team1/blob/master/catkin_ws/src/assignment4_trackingandfollowing/src/video/VID-20230328-WA0010_AdobeExpress.gif)
 
 
