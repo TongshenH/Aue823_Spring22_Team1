@@ -11,7 +11,8 @@ class LineFollower(object):
     def __init__(self):
         rospy.init_node("live_line_follower", anonymous=True)
         self.bridge_object = CvBridge()
-        self.image_sub = rospy.Subscriber("/camera/image/compressed", CompressedImage, self.camera_callback)
+        # self.image_sub = rospy.Subscriber("/camera/image/compressed", CompressedImage, self.camera_callback)
+        self.image_sub = rospy.Subscriber("/camera/rgb/image_raw/compressed", CompressedImage, self.camera_callback)
         self.vel_publisher = rospy.Publisher("/cmd_vel", Twist)
         
     def camera_callback(self, msg):
@@ -56,7 +57,7 @@ class LineFollower(object):
     def run(self):
         rospy.sleep(2)
         while not rospy.is_shutdown():
-            cropped_binary_img = self.convert_binary()
+            # cropped_binary_img = self.convert_binary()
             cv2.imshow("Camera Image", self.cv2_image)
             cv2.waitKey(1)
         

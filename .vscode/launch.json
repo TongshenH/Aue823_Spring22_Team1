@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "grayson_autorace_src",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/src/grayson_autodrive/src"
+        },
+        {
+            "name": "aue_finals",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/src/auefinals/src/scripts"
+        }
+    ]
+}

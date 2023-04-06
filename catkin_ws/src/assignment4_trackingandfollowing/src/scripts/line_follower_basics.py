@@ -18,14 +18,14 @@ class LineFollower(object):
         # Bot controls
         self.vel_msg = Twist()
         self.zero_controls()
-        self.vel_msg.linear.x = .75
+        self.vel_msg.linear.x = .2
         self.vel_publisher.publish(self.vel_msg)
         
         # For controller
         self.pid_count = 0
         self.I = 0
         self.prev_error = 0
-        self.Kp = 0.4
+        self.Kp = 0.15
         self.Ki = 0.0000
         self.Kd = 1
         
