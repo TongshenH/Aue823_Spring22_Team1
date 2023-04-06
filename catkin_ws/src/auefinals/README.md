@@ -2,7 +2,7 @@
 
 ### Stop Sign Detection
 
-![alt text](https://github.com/Parth-S-Hub/Aue823_Spring22_Team1/blob/master/catkin_ws/src/auefinals/src/videos/stop_sign_detection.gif)
+![alt text](https://github.com/gbbyrd/Aue823_Spring22_Team1/blob/master/catkin_ws/src/auefinals/src/videos/stop_sign_detection.gif)
 
 # Initial README from TAs
 ## AuE893 Final Project Gazebo Model
