@@ -1,6 +1,24 @@
 # Aue Finals
 
+# Gazebo Simulation
 
+## Task 1
+
+The wall following and obstacle avoidance functionality of the robot use the same algorithm. This algorithm follows the following steps:
+
+1. Divide the lidar into two left and right sections, each of 60 degrees.
+2. The lidar outputs values between 0 and 3.5 with anything greater than 3.5 corresponding to infinity. Normalize the lidar data to be between 0 and 1 using the sigmoid function. Set any infinite values to 1. For the PID controller, we want objects that are closer to the turtlebot to provide larger numbers, so complete the normalization process by subtracting each normalized lidar output from 1. Now we have lidar data in the bounds [0, 1] with values closer to 1 representing objects that are closer to the turtlebot and those closer to 0 representing values further away.
+3. Take a sum of the normalized lidar values for the left and rigth sections. Find the difference between them. This difference becomes the error for our PID controller. Input this error into our PID controller to get angular velocity for the turtlebot.
+
+The parameters for the PID controller had to be precisely tuned to get the desired behavior for the turtlebot.
+
+### Wall Following
+
+![alt text](https://github.com/gbbyrd/Aue823_Spring22_Team1/blob/master/catkin_ws/src/auefinals/src/videos/wall_following.gif)
+
+### Obstacle Avoidance
+
+![alt text](https://github.com/gbbyrd/Aue823_Spring22_Team1/blob/master/catkin_ws/src/auefinals/src/videos/obstacle_avoidance.gif)
 
 ## Task 2
 

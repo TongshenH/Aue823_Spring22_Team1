@@ -28,11 +28,35 @@ class Wall_Follower():
         self.zero_controls()
         self.bot_control_publisher.publish(self.vel_msg)
         
+        # Controller
+        self.Kp = .7
+        self.Ki = 0
+        self.Kd = 1
+        self.prev_error = 0
+        self.I = 0
+        
     def lidar_callback(self, msg):
         # print(msg.ranges[0])
-        self.left = msg.ranges[-90:-20]
-        self.right = msg.ranges[20:90]
-        self.forward = msg.ranges[-20:]+msg.ranges[:20]
+        self.left = msg.ranges[-90:-1]
+        self.right = msg.ranges[0:90]
+        self.forward = msg.ranges[-10:]+msg.ranges[:10]
+        
+    def avoid_obstacles(self):
+        # get error for PID controller
+        error = sum(self.left) - sum(self.right)
+        
+        # send error to PID controller
+        angular_vel = self.pid_control(error)
+        
+        # rotate
+        self.rotate(angular_vel)
+        
+    def rotate(self, angular_vel):
+        self.zero_rotation()
+        self.vel_msg.angular.z = angular_vel
+        self.vel_publisher.publish(self.vel_msg)
+        
+        
         
     def make_decision(self):
         # Get sum of the left right and forward sectors
@@ -65,7 +89,7 @@ class Wall_Follower():
         return decision
     
     def rotate_ccw(self):
-        angular_vel = 0.2
+        angular_vel = 0.4
         t1 = rospy.Time.now().to_sec()
         t2 = t1
         # Calculate time for 1/4 rotation, or PI/2
@@ -104,10 +128,17 @@ class Wall_Follower():
         self.bot_control_publisher.publish(self.vel_msg)
         return
     
+    def pid_control(self, error):
+        P = error
+        self.I = self.I + error
+        D = error - self.prev_error
+        self.prev_error = error
+        total = P*self.Kp + self.I*self.Ki + D*self.Kd
+        return total
+    
     def run(self):
         while not rospy.is_shutdown():
-            decision = self.make_decision()
-            self.controls(decision)
+            decision = self.avoid_obstacles()
     
 if __name__=='__main__':
     OA = Wall_Follower()

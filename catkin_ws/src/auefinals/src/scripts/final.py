@@ -5,6 +5,7 @@ import rospy
 import cv2
 import numpy as np
 from cv_bridge import CvBridge, CvBridgeError
+from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Image, CompressedImage
 import torch
@@ -25,11 +26,14 @@ class Final(object):
         self.yolo_model.cuda()
         self.yolo_model.eval()
         
+        # subscribers and publishers
         rospy.init_node("final", anonymous=True)
-        self.bridge_object = CvBridge()
         self.image_sub = rospy.Subscriber("/camera/rgb/image_raw/compressed", CompressedImage, self.camera_callback)
         self.vel_publisher = rospy.Publisher("/cmd_vel", Twist)
-        self.count = 0
+        self.lidar_subscriber = rospy.Subscriber("/scan", LaserScan, self.lidar_callback)
+        
+        # OpenCV functionality
+        self.bridge_object = CvBridge()
         
         # Bot controls
         self.starting_vel = .2
@@ -38,23 +42,49 @@ class Final(object):
         self.vel_msg.linear.x = self.starting_vel
         self.vel_publisher.publish(self.vel_msg)
         
-        # For controller
-        self.pid_count = 0
-        self.I = 0
-        self.prev_error = 0
-        self.Kp = 0.03
-        self.Ki = 0.0000
-        self.Kd = 1
+        # Obstacle Avoidance (OA) controller
+        # Controller
+        self.oa_Kp = .1
+        self.oa_Ki = 0
+        self.oa_Kd = 0
+        self.oa_prev_error = 0
+        self.oa_I = 0
+        
+        # Line Following Controller
+        self.line_pid_count = 0
+        self.line_I = 0
+        self.line_prev_error = 0
+        self.line_Kp = 0.03
+        self.line_Ki = 0.0000
+        self.line_Kd = 1
+        
+        # Class variables for line_following
+        self.line_detected = False
         
         # For stop sign detection
         self.stopped = False
-        
+    
+    # Subscriber callback functions
     def camera_callback(self, msg):
         try:
             self.cv2_image = cv2.resize(self.bridge_object.compressed_imgmsg_to_cv2(msg,desired_encoding="bgr8"), (400, 400), interpolation=cv2.INTER_AREA)
         except CvBridgeError as e:
-            print(e) 
-        self.count += 1
+            print(e)
+            
+    def lidar_callback(self, msg):
+        self.left = self.normalize_lidar(list(msg.ranges[-60:-1]))
+        self.right = self.normalize_lidar(list(msg.ranges[0:60]))
+        
+    def normalize_lidar(self, lidar_list):
+        for idx, val in enumerate(lidar_list):
+            normalized = self.sigmoid(val)
+            normalized = 2* (normalized - .5)
+            normalized = 1 - normalized
+            lidar_list[idx] = normalized
+            
+        # the values now should be in between 0 and 1 with closer objects representing
+        # a value closer to 1
+        return lidar_list
     
     def zero_controls(self):
         self.vel_msg.linear.x = 0
@@ -73,6 +103,33 @@ class Final(object):
         self.vel_msg.linear.x = 0
         self.vel_msg.linear.y = 0
         self.vel_msg.linear.z = 0
+        
+    def sigmoid(self, input):
+        if input > 3.5:
+            return 1
+        return 1 / (1 + np.exp(-input))
+    
+    def avoid_obstacles(self):
+        
+        self.vel_msg.linear.x = self.starting_vel
+        
+        error = -(sum(self.right) - sum(self.left))
+        
+        # send error to PID controller
+        angular_vel = self.oa_pid_control(error)
+        
+        # rotate
+        self.rotate(angular_vel)
+        
+    def oa_pid_control(self, error):
+        P = error
+        self.oa_I = self.oa_I + error
+        D = error - self.oa_prev_error
+        self.oa_prev_error = error
+        
+        # when tuning, it was found that the integral and derivate were not necessary
+        total = P*self.oa_Kp # + self.oa_I*self.oa_Ki + D*self.oa_Kd
+        return total
     
     def follow_line(self, binary_img, height, width):
         """ This function calculates the centroid of a binary image to determine
@@ -86,10 +143,11 @@ class Final(object):
             height (_type_): height of the non-cropped camera image
             width (_type_): width of the non-cropped camera image
         """
+        if np.sum(binary_img) > 0:
+            self.line_detected = True 
+        
         # calculate the centroid of the binary image
         M = cv2.moments(binary_img)
-        
-        # calculate x,y coordinate of center
         
         # if no line is detected, return the function
         if M["m00"] == 0:
@@ -99,6 +157,7 @@ class Final(object):
         
         self.vel_msg.linear.x = self.starting_vel
         
+        # calculate x,y coordinate of center
         cX = int(M["m10"] / M["m00"])
         cY = int(M["m01"] / M["m00"])
         
@@ -108,7 +167,7 @@ class Final(object):
         # calculate distance between centroid x value and center of the image
         error = width//2 - cX
         angular_vel = .05
-        angular_vel *= self.pid_control(error)
+        angular_vel *= self.line_pid_control(error)
         
         # turn towards the center of the line   
         self.rotate(angular_vel)
@@ -145,12 +204,12 @@ class Final(object):
         self.vel_msg.angular.z = angular_vel
         self.vel_publisher.publish(self.vel_msg)
         
-    def pid_control(self, error):
+    def line_pid_control(self, error):
         P = error
-        self.I = self.I + error
-        D = error - self.prev_error
-        self.prev_error = error
-        total = P*self.Kp + self.I*self.Ki + D*self.Kd
+        self.line_I = self.line_I + error
+        D = error - self.line_prev_error
+        self.line_prev_error = error
+        total = P*self.line_Kp + self.line_I*self.line_Ki + D*self.line_Kd
         return total
     
     def detect_stop_sign(self):
@@ -196,29 +255,14 @@ class Final(object):
         # right
         cv2.line(self.cv2_image, (xmax, ymin), (xmax, ymax), (0,255,0), 2)
         
-    def stop_and_turn_around(self):
-        self.zero_controls()
-        
-        # how long do you want the turtlebot to remain stopped?
-        count = 0
-        while count < 200:
-            self.detect_stop_sign()
-        
-        self.rotate(.2)
-        
-        count = 0
-        while count < 100:
-            self.detect_stop_sign()
-        
-        self.stopped = False
-        
-    def look_at_stop_sign(self, ):
-        pass
-        
     def run(self):
-        rospy.sleep(3)
+        rospy.sleep(1)
         count = 0
         while not rospy.is_shutdown():
+            # if no line is detected, run obstacle avoidance algorithm
+            if self.line_detected == False:
+                self.avoid_obstacles()
+            
             # search for stop sign
             xmin, xmax, ymin, ymax = self.detect_stop_sign()
             
