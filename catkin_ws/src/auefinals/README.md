@@ -1,6 +1,16 @@
 # Aue Finals
 
+
+
+## Task 2
+
+### Line Following
+
+The line following algorithm uses blob detection and masking. We started by tuning the hsv parameters to get a binary image of the turtlebot camera feed that included only the line that we need to follow. We then masked this binary image by cropping out all but the very bottom of the image (the part of the line closest to the turtlebot). We then calculate the centroid of the binary image, which corresponds to the center of the line. Next, we treat the difference between the x position of the centroid and the center of the image as our error for a tuned PID controller which turns the bot to have it follow the line successfully. This centroid of the line is denoted in red in the below .gif.
+
 ### Stop Sign Detection
+
+The implementation of stop sign detection was done using a pretrained Yolov5 model (a neural network for object detection). The smallest version of this model was chosen for performance purposes, but it is more than sufficient for the application here. In fact, our Yolo model is capable of detecting and labelling approximately 80 objects! The stop sign detection works by constantly scanning the camera feed using yolo and providing a a pandas dataframe consisting of the name of any classes of objects detected in the picture as well as the bounding box dimenstions of the detected object. We loop through this dataframe searching for the stop sign class, if the stop sign class is found in the dataframe, then a stop sign is detected. We only want to stop if the stop sign is close enough to be relevant, so a threshold is established and compared to the size of the bounding block. If the size of the bounding block is greater than this threshold, then the turtlebot stops for 3 seconds before continueing on.
 
 ![alt text](https://github.com/gbbyrd/Aue823_Spring22_Team1/blob/master/catkin_ws/src/auefinals/src/videos/stop_sign_detection.gif)
 
