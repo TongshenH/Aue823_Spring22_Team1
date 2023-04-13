@@ -489,3 +489,87 @@ make[1]: Leaving directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Tea
 
 
 
+Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2d51f/fast && /usr/bin/make -f CMakeFiles/cmTC_2d51f.dir/build.make CMakeFiles/cmTC_2d51f.dir/build
+make[1]: Entering directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2d51f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_2d51f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2d51f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d51f.dir/link.txt --verbose=1
+/usr/bin/cc -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=XOpenDisplay    -rdynamic CMakeFiles/cmTC_2d51f.dir/CheckFunctionExists.c.o  -o cmTC_2d51f  /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
+make[1]: Leaving directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c5384/fast && /usr/bin/make -f CMakeFiles/cmTC_c5384.dir/build.make CMakeFiles/cmTC_c5384.dir/build
+make[1]: Entering directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c5384.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_c5384.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c5384
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5384.dir/link.txt --verbose=1
+/usr/bin/cc -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTC_c5384.dir/CheckFunctionExists.c.o  -o cmTC_c5384 
+make[1]: Leaving directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_69913/fast && /usr/bin/make -f CMakeFiles/cmTC_69913.dir/build.make CMakeFiles/cmTC_69913.dir/build
+make[1]: Entering directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_69913.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_69913.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_69913
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_69913.dir/link.txt --verbose=1
+/usr/bin/cc -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTC_69913.dir/CheckFunctionExists.c.o  -o cmTC_69913 
+make[1]: Leaving directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6feae/fast && /usr/bin/make -f CMakeFiles/cmTC_6feae.dir/build.make CMakeFiles/cmTC_6feae.dir/build
+make[1]: Entering directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6feae.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_6feae.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6feae
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6feae.dir/link.txt --verbose=1
+/usr/bin/cc -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTC_6feae.dir/CheckFunctionExists.c.o  -o cmTC_6feae 
+make[1]: Leaving directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5aac4/fast && /usr/bin/make -f CMakeFiles/cmTC_5aac4.dir/build.make CMakeFiles/cmTC_5aac4.dir/build
+make[1]: Entering directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5aac4.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_5aac4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5aac4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5aac4.dir/link.txt --verbose=1
+/usr/bin/cc -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTC_5aac4.dir/CheckFunctionExists.c.o  -o cmTC_5aac4 
+make[1]: Leaving directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_39827/fast && /usr/bin/make -f CMakeFiles/cmTC_39827.dir/build.make CMakeFiles/cmTC_39827.dir/build
+make[1]: Entering directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_39827.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTC_39827.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_39827
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_39827.dir/link.txt --verbose=1
+/usr/bin/cc -Wall -Wno-unused-result -Wno-unknown-pragmas -Wno-unused-variable -Wfatal-errors -fPIC  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    -rdynamic CMakeFiles/cmTC_39827.dir/CheckFunctionExists.c.o  -o cmTC_39827  -lICE 
+make[1]: Leaving directory '/home/gbbyrd/Desktop/Code/School/Aue823_Spring22_Team1/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+
+
