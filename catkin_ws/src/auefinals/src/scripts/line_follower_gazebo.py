@@ -12,7 +12,7 @@ class LineFollower(object):
     def __init__(self):
         rospy.init_node("live_line_follower", anonymous=True)
         self.bridge_object = CvBridge()
-        self.image_sub = rospy.Subscriber("/camera/image/compressed", CompressedImage, self.camera_callback)
+        self.image_sub = rospy.Subscriber("/camera/rgb/image_raw/compressed", CompressedImage, self.camera_callback)
         self.vel_publisher = rospy.Publisher("/cmd_vel", Twist)
         
         # Bot controls
